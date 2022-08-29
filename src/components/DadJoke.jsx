@@ -5,8 +5,8 @@ class DadJoke extends React.Component {
   constructor() {
     super();
 
-    this.fetchJoke = this.fetchJoke.bind(this);
-    this.saveJoke = this.saveJoke.bind(this);
+    // this.fetchJoke = this.fetchJoke.bind(this);
+    // this.saveJoke = this.saveJoke.bind(this);
 
     this.state = {
       jokeObj: undefined,
@@ -15,7 +15,7 @@ class DadJoke extends React.Component {
     }
   }
 
-  async fetchJoke() {
+  fetchJoke = async () => {
     this.setState(
       { loading: true }, // Primeiro parâmetro da setState()!
       async () => {
@@ -33,7 +33,7 @@ class DadJoke extends React.Component {
     this.fetchJoke();
   }
 
-  saveJoke() {
+  saveJoke = () => {
     this.setState(({ storedJokes, jokeObj }) => ({
       storedJokes: [...storedJokes, jokeObj]
     }));
@@ -53,8 +53,8 @@ class DadJoke extends React.Component {
 
           {
             loading
-              ? loadingElement
-              : <Joke jokeObj={jokeObj} saveJoke={this.saveJoke} />
+            ? loadingElement
+            : <Joke jokeObj={jokeObj} saveJoke={this.saveJoke} />
           }
 
       </div>
